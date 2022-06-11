@@ -1,8 +1,7 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../theme/app_theme.dart';
-import '../theme/red_theme.dart';
+import '../theme/theme.dart';
 
 part 'config_event.dart';
 part 'config_state.dart';

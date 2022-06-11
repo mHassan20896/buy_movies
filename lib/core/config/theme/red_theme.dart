@@ -1,5 +1,3 @@
-import 'package:flutter/material.dart';
-
-import 'app_theme.dart';
+part of 'theme.dart';
 
 class RedTheme extends AppTheme {}
