@@ -1,1 +1,1 @@
-const baseUrl = String.fromEnvironment("BASE_URL");
+const baseUrl = "api.themoviedb.org";

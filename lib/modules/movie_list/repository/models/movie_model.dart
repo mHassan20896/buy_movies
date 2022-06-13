@@ -2,22 +2,22 @@ part of 'models.dart';
 
 class MovieModel extends Equatable {
   const MovieModel({
-    required this.castMembers,
+    required this.price,
     required this.movieName,
     required this.imageUrl,
   });
 
   final String movieName;
   final String imageUrl;
-  final List<String> castMembers;
+  final int price;
 
   MovieModel copyWith({
     String? movieName,
-    List<String>? castMembers,
+    int? price,
     String? imageUrl,
   }) =>
       MovieModel(
-        castMembers: castMembers ?? this.castMembers,
+        price: price ?? this.price,
         movieName: movieName ?? this.movieName,
         imageUrl: imageUrl ?? this.imageUrl,
       );
@@ -25,7 +25,7 @@ class MovieModel extends Equatable {
   @override
   List<Object> get props => [
         movieName,
-        castMembers,
+        price,
         imageUrl,
       ];
 }

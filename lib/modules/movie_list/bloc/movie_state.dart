@@ -1,10 +1,23 @@
 part of 'movie_bloc.dart';
 
-abstract class MovieState extends Equatable {
-  const MovieState();
-  
-  @override
-  List<Object> get props => [];
-}
+class MovieState extends Equatable {
+  const MovieState({
+    this.movieApiState = const ApiState(),
+    this.cartItems = const [],
+  });
 
-class MovieInitial extends MovieState {}
+  final ApiState<List<MovieModel>> movieApiState;
+  final List<MovieModel> cartItems;
+
+  MovieState copyWith({
+    ApiState<List<MovieModel>>? movieApiState,
+    MovieModel? cartItem,
+  }) =>
+      MovieState(
+        movieApiState: movieApiState ?? this.movieApiState,
+        cartItems: cartItem != null ? [cartItem, ...cartItems] : cartItems,
+      );
+
+  @override
+  List<Object> get props => [movieApiState, cartItems];
+}

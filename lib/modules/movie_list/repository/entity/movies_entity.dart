@@ -1,5 +1,5 @@
-class MovieApiResponse {
-  const MovieApiResponse({
+class MovieEntityList {
+  const MovieEntityList({
     required this.page,
     required this.results,
     required this.totalPages,
@@ -7,15 +7,15 @@ class MovieApiResponse {
   });
 
   final int page;
-  final List<Result> results;
+  final List<Movie> results;
   final int totalPages;
   final int totalResults;
 
-  factory MovieApiResponse.fromJson(Map<String, dynamic> json) =>
-      MovieApiResponse(
+  factory MovieEntityList.fromJson(Map<String, dynamic> json) =>
+      MovieEntityList(
         page: json["page"],
         results:
-            List<Result>.from(json["results"].map((x) => Result.fromJson(x))),
+            List<Movie>.from(json["results"].map((x) => Movie.fromJson(x))),
         totalPages: json["total_pages"],
         totalResults: json["total_results"],
       );
@@ -28,8 +28,8 @@ class MovieApiResponse {
       };
 }
 
-class Result {
-  const Result({
+class Movie {
+  const Movie({
     required this.adult,
     required this.backdropPath,
     required this.genreIds,
@@ -59,7 +59,7 @@ class Result {
   final double voteAverage;
   final int voteCount;
 
-  factory Result.fromJson(Map<String, dynamic> json) => Result(
+  factory Movie.fromJson(Map<String, dynamic> json) => Movie(
         adult: json["adult"],
         backdropPath: json["backdrop_path"],
         genreIds: List<int>.from(json["genre_ids"].map((x) => x)),
