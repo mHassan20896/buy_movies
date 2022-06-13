@@ -11,11 +11,11 @@ class MovieState extends Equatable {
 
   MovieState copyWith({
     ApiState<List<MovieModel>>? movieApiState,
-    MovieModel? cartItem,
+    List<MovieModel>? cartItems,
   }) =>
       MovieState(
         movieApiState: movieApiState ?? this.movieApiState,
-        cartItems: cartItem != null ? [cartItem, ...cartItems] : cartItems,
+        cartItems: cartItems ?? this.cartItems,
       );
 
   @override

@@ -26,12 +26,17 @@ class MovieBloc extends Bloc<MovieEvent, MovieState> {
   }
 
   void _addMovieToCart(AddMovieToCartEvent event, Emitter<MovieState> emit) {
-    emit(state.copyWith(cartItem: event.movie));
+    final cartItmes = [event.movie, ...state.cartItems];
+
+    emit(state.copyWith(cartItems: cartItmes));
   }
 
   void _removeMovieFromCart(
       RemoveMovieFromCartEvent event, Emitter<MovieState> emit) {
-    state.cartItems.remove(event.movie);
-    emit(state.copyWith());
+    final cartItmes = [...state.cartItems];
+    final index = cartItmes.indexWhere((element) => element == event.movie);
+    cartItmes.removeAt(index);
+
+    emit(state.copyWith(cartItems: cartItmes));
   }
 }

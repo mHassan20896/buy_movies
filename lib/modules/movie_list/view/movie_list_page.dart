@@ -117,7 +117,7 @@ class _MovieListViewState extends State<_MovieListView> {
                               ),
                               GestureDetector(
                                 onTap: () => context.read<MovieBloc>().add(
-                                    AddMovieToCartEvent(
+                                    RemoveMovieFromCartEvent(
                                         movieList[index], Constants.apiKey)),
                                 child: const Icon(Icons.remove),
                               ),

@@ -1,7 +1,6 @@
 import 'package:buy_movies/modules/movie_list/bloc/movie_bloc.dart';
+import 'package:buy_movies/utils/constants.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class PaymentPage extends StatelessWidget {
@@ -14,13 +13,19 @@ class PaymentPage extends StatelessWidget {
         title: const Text('Payment Page'),
       ),
       body: BlocConsumer<MovieBloc, MovieState>(
-        listener: (context, state) {
-          // TODO: implement listener
-        },
+        listener: (context, state) {},
         builder: (context, state) {
+          final movieList = context.read<MovieBloc>().state.cartItems;
           return ListView.builder(
             itemBuilder: (context, index) => ListTile(
-              title: Text(state.cartItems[index].movieName),
+              title: Text(movieList[index].movieName),
+              subtitle: Text('PRICE: \$${movieList[index].price.toString()}'),
+              trailing: GestureDetector(
+                onTap: () => context.read<MovieBloc>().add(
+                    RemoveMovieFromCartEvent(
+                        movieList[index], Constants.apiKey)),
+                child: const Icon(Icons.remove),
+              ),
             ),
             itemCount: state.cartItems.length,
           );
