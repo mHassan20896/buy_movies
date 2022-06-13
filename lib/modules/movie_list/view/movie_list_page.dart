@@ -124,41 +124,6 @@ class _MovieListViewState extends State<_MovieListView> {
                           )
                         ],
                       ),
-                      // child: Column(
-                      //   crossAxisAlignment: CrossAxisAlignment.start,
-                      //   children: [
-                      //     Row(
-                      //       children: [
-                      //         Expanded(
-                      //           child: Text(
-                      //             movieList[index].movieName,
-                      //             style: Theme.of(context)
-                      //                 .textTheme
-                      //                 .bodyLarge!
-                      //                 .copyWith(fontWeight: FontWeight.bold),
-                      //             overflow: TextOverflow.ellipsis,
-                      //           ),
-                      //         ),
-                      //         const SizedBox(width: 4),
-                      //         IconButton(
-                      //           onPressed: () => context.read<MovieBloc>().add(
-                      //               AddMovieToCartEvent(
-                      //                   movieList[index], Constants.apiKey)),
-                      //           icon: const Icon(Icons.add),
-                      //         ),
-                      //       ],
-                      //     ),
-                      //     // const SizedBox(height: 4),
-                      //     Text(
-                      //       'Price: ${movieList[index].price}',
-                      //       style: Theme.of(context)
-                      //           .textTheme
-                      //           .bodyLarge!
-                      //           .copyWith(fontWeight: FontWeight.bold),
-                      //     ),
-                      //     const SizedBox(height: 4),
-                      //   ],
-                      // ),
                     )
                   ],
                 ),

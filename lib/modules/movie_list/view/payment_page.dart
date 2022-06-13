@@ -14,8 +14,7 @@ class PaymentPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Payment Page'),
       ),
-      body: BlocConsumer<MovieBloc, MovieState>(
-        listener: (context, state) {},
+      body: BlocBuilder<MovieBloc, MovieState>(
         builder: (context, state) {
           final movieList = context.read<MovieBloc>().state.cartItems;
           return Column(
