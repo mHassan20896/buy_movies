@@ -2,7 +2,9 @@ import 'package:buy_movies/core/network/http.dart';
 import 'package:buy_movies/core/network/url.dart';
 import 'package:buy_movies/modules/movie_list/bloc/movie_bloc.dart';
 import 'package:buy_movies/modules/movie_list/repository/repository.dart';
+import 'package:buy_movies/modules/movie_list/view/payment_page.dart';
 import 'package:buy_movies/utils/constants.dart';
+import 'package:buy_movies/utils/navigator_x.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:http/http.dart';
@@ -171,21 +173,30 @@ class _MovieListViewState extends State<_MovieListView> {
 
   Widget _cartItemCountWidget() => BlocBuilder<MovieBloc, MovieState>(
         builder: (context, state) {
-          return Row(
-            children: [
-              const Padding(
-                padding: EdgeInsets.all(8.0),
-                child: Icon(Icons.shopping_cart),
+          return GestureDetector(
+            onTap: () => NavigatorX.pushPage(
+              context,
+              page: BlocProvider.value(
+                value: context.read<MovieBloc>(),
+                child: const PaymentPage(),
               ),
-              Text(
-                state.cartItems.length.toString(),
-                style: Theme.of(context)
-                    .textTheme
-                    .headline6!
-                    .copyWith(color: Colors.white),
-              ),
-              const SizedBox(width: 8.0)
-            ],
+            ),
+            child: Row(
+              children: [
+                const Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: Icon(Icons.shopping_cart),
+                ),
+                Text(
+                  state.cartItems.length.toString(),
+                  style: Theme.of(context)
+                      .textTheme
+                      .headline6!
+                      .copyWith(color: Colors.white),
+                ),
+                const SizedBox(width: 8.0)
+              ],
+            ),
           );
         },
       );
