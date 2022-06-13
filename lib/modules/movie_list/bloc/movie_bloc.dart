@@ -35,7 +35,7 @@ class MovieBloc extends Bloc<MovieEvent, MovieState> {
       RemoveMovieFromCartEvent event, Emitter<MovieState> emit) {
     final cartItmes = [...state.cartItems];
     final index = cartItmes.indexWhere((element) => element == event.movie);
-    cartItmes.removeAt(index);
+    if (index >= 0) cartItmes.removeAt(index);
 
     emit(state.copyWith(cartItems: cartItmes));
   }

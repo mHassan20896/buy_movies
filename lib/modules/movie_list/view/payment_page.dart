@@ -3,6 +3,7 @@ import 'package:buy_movies/modules/movie_list/repository/models/models.dart';
 import 'package:buy_movies/utils/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:toast/toast.dart';
 
 class PaymentPage extends StatelessWidget {
   const PaymentPage({Key? key}) : super(key: key);
@@ -46,20 +47,10 @@ class PaymentPage extends StatelessWidget {
                     const Spacer(),
                     ElevatedButton(
                         onPressed: () {
-                          showDialog(
-                              context: context,
-                              builder: (context) {
-                                return AlertDialog(
-                                  title: const Text('Payment'),
-                                  content: const Text(
-                                      'Your payment was successfull'),
-                                  actions: [
-                                    ElevatedButton(
-                                        onPressed: () => Navigator.pop(context),
-                                        child: const Text('OK'))
-                                  ],
-                                );
-                              });
+                          ToastContext().init(context);
+                          Toast.show("Payment Successfull",
+                              duration: Toast.lengthShort,
+                              gravity: Toast.center);
                         },
                         child: const Text('Payment'))
                   ],
