@@ -7,7 +7,7 @@ import 'core/config/bloc/config_bloc.dart';
 void main() {
   runApp(BlocProvider(
     create: (context) => ConfigBloc(),
-    child: MyApp(),
+    child: const MyApp(),
   ));
 }
 
