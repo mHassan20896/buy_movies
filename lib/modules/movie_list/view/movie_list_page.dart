@@ -1,5 +1,4 @@
 import 'package:buy_movies/core/network/http.dart';
-import 'package:buy_movies/core/network/url.dart';
 import 'package:buy_movies/modules/movie_list/bloc/movie_bloc.dart';
 import 'package:buy_movies/modules/movie_list/repository/repository.dart';
 import 'package:buy_movies/modules/movie_list/view/payment_page.dart';
