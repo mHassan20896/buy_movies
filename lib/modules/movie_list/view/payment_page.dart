@@ -17,6 +17,11 @@ class PaymentPage extends StatelessWidget {
       body: BlocBuilder<MovieBloc, MovieState>(
         builder: (context, state) {
           final movieList = context.read<MovieBloc>().state.cartItems;
+          if (movieList.isEmpty) {
+            return const Center(
+              child: Text('No Item was Selected'),
+            );
+          }
           return Column(
             children: [
               Expanded(
