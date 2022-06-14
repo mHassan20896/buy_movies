@@ -50,13 +50,13 @@ class PaymentPage extends StatelessWidget {
                     ),
                     const Spacer(),
                     ElevatedButton(
-                        onPressed: () {
-                          ToastContext().init(context);
-                          Toast.show("Payment Successfull",
-                              duration: Toast.lengthShort,
-                              gravity: Toast.center);
-                        },
-                        child: const Text('Payment'))
+                      onPressed: () {
+                        ToastContext().init(context);
+                        Toast.show("Payment Successfull",
+                            duration: Toast.lengthShort, gravity: Toast.center);
+                      },
+                      child: const Text('Payment'),
+                    )
                   ],
                 ),
               )
