@@ -45,7 +45,7 @@ class PaymentPage extends StatelessWidget {
                 child: Row(
                   children: [
                     Text(
-                      'Total: \$${movieList.reduce((value, element) => MovieModel(price: value.price + element.price, movieName: 'movieName', imageUrl: 'imageUrl')).price}',
+                      'Total: \$${_total(movieList)}',
                       style: Theme.of(context).textTheme.headline6,
                     ),
                     const Spacer(),
@@ -66,4 +66,11 @@ class PaymentPage extends StatelessWidget {
       ),
     );
   }
+
+  int _total(List<MovieModel> movieList) => movieList
+      .reduce((value, element) => MovieModel(
+          price: value.price + element.price,
+          movieName: 'movieName',
+          imageUrl: 'imageUrl'))
+      .price;
 }
