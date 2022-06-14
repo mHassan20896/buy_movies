@@ -52,8 +52,11 @@ class PaymentPage extends StatelessWidget {
                     ElevatedButton(
                       onPressed: () {
                         ToastContext().init(context);
-                        Toast.show("Payment Successfull",
-                            duration: Toast.lengthShort, gravity: Toast.center);
+                        Toast.show(
+                          "Payment Successfull",
+                          duration: Toast.lengthShort,
+                          gravity: Toast.center,
+                        );
                       },
                       child: const Text('Payment'),
                     )
