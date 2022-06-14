@@ -1,4 +1,5 @@
 import 'package:buy_movies/core/network/http.dart';
+import 'package:buy_movies/core/widgets/drawer_list_view.dart';
 import 'package:buy_movies/modules/movie_list/bloc/movie_bloc.dart';
 import 'package:buy_movies/modules/movie_list/repository/repository.dart';
 import 'package:buy_movies/modules/movie_list/view/payment_page.dart';
@@ -38,6 +39,7 @@ class _MovieListViewState extends State<_MovieListView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: const Drawer(child: DrawerListView()),
       appBar: AppBar(
         title: const Text("Buy Movies"),
         actions: [_cartItemCountWidget()],

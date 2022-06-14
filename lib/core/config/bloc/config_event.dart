@@ -13,4 +13,4 @@ class ThemeEvent extends ConfigEvent {
   List<Object?> get props => [themeName];
 }
 
-enum ThemeName { blue }
+enum ThemeName { blue, green, red, dark }

@@ -5,6 +5,9 @@ class ConfigState extends Equatable {
 
   final AppTheme appTheme;
 
+  ConfigState copyWith({AppTheme? appTheme}) =>
+      ConfigState(appTheme: appTheme ?? this.appTheme);
+
   @override
   List<Object> get props => [appTheme];
 }
