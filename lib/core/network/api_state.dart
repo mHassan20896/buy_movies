@@ -2,7 +2,7 @@ import 'dart:io';
 
 import 'package:equatable/equatable.dart';
 
-import '../exception/auth_exception.dart';
+import '../exception/custom_exception.dart';
 
 class ApiState<T> extends Equatable {
   const ApiState({
