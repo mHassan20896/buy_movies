@@ -18,7 +18,10 @@ class MovieBloc extends Bloc<MovieEvent, MovieState> {
   Future<void> _fetchMovie(
       FetchMovieEvent event, Emitter<MovieState> emit) async {
     emit(
-      state..movieApiState.copyWith(apiResponseState: ApiResponseState.loading),
+      state.copyWith(
+        movieApiState: state.movieApiState
+            .copyWith(apiResponseState: ApiResponseState.loading),
+      ),
     );
     final apiState =
         await apiCall(() => movieRepository.fetchMovies(event.apiKey));

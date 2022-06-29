@@ -34,6 +34,8 @@ class HttpService {
     return _handleJsonSerialization(response);
   }
 
+// Triple<Map, List, String>
+
   Future<Either<Map<String, dynamic>, List>> post({
     Map<String, dynamic>? body,
     Map<String, dynamic>? queryParams,
