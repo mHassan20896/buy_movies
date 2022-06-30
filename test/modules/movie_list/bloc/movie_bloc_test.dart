@@ -123,7 +123,7 @@ void main() {
       );
 
       blocTest<MovieBloc, MovieState>(
-        'emits [MovieState.movieApiState.success] when AddMovieToCartEvent is added.',
+        'emits [MovieState.movieApiState.success] when RemoveMovieFromCartEvent is added.',
         seed: () =>
             seedState.copyWith(cartItems: [msMarvel, drStrangers, drStrangers]),
         build: () => MovieBloc(movieRepository),
